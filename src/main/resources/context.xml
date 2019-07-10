@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="testDto" class="com.nuclear.app.dto.TestDtoImpl" />
+
+    <bean id="testService" class="com.nuclear.app.service.TestServiceImpl" >
+        <constructor-arg ref="testDto" name="testDto" />
+    </bean>
+
+    <bean id="userInputService" class="com.nuclear.app.service.UserInputServiceImpl" />
+
+    <bean id="userService" class="com.nuclear.app.service.UserServiceImpl" >
+        <constructor-arg ref="userInputService" name="userInputService" />
+    </bean>
+
+</beans>
