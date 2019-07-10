@@ -4,20 +4,22 @@ import com.nuclear.app.model.User;
 import com.nuclear.app.service.TestService;
 import com.nuclear.app.service.UserInputService;
 import com.nuclear.app.service.UserService;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
 
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/context.xml");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.register(AppConfiguration.class);
+        context.refresh();
 
-        UserService userService = (UserService) context.getBean("userService");
+        UserService userService = context.getBean(UserService.class);
 
-        UserInputService userInputService = (UserInputService) context.getBean("userInputService");
+        UserInputService userInputService = context.getBean(UserInputService.class);
 
-        TestService testService = (TestService) context.getBean("testService");
+        TestService testService = context.getBean(TestService.class);
 
         userService.registerNewUser();
 
