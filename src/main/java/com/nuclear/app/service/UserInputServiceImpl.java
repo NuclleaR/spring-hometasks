@@ -1,7 +1,10 @@
 package com.nuclear.app.service;
 
+import org.springframework.stereotype.Service;
+
 import java.util.Scanner;
 
+@Service("UserInputService")
 public class UserInputServiceImpl implements UserInputService {
 
     private Scanner scanner = new Scanner(System.in);

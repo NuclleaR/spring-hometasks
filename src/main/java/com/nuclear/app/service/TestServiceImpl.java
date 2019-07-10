@@ -1,13 +1,17 @@
 package com.nuclear.app.service;
 
 import com.nuclear.app.dto.TestDto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("TestService")
 public class TestServiceImpl implements TestService {
 
     private final TestDto testDto;
 
+    @Autowired
     public TestServiceImpl(TestDto testDto) {
         this.testDto = testDto;
     }

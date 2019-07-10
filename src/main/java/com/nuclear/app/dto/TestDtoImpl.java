@@ -1,8 +1,11 @@
 package com.nuclear.app.dto;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.Arrays;
 import java.util.List;
 
+@Repository("TestDto")
 public class TestDtoImpl implements TestDto {
     @Override
     public List<String> getQuestionsFromDB() {

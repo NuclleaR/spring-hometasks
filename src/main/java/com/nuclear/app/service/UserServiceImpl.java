@@ -1,15 +1,20 @@
 package com.nuclear.app.service;
 
 import com.nuclear.app.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("UserService")
 public class UserServiceImpl implements UserService {
 
     private final UserInputService userInputService;
     private User user;
 
-    public UserServiceImpl(UserInputService userInputService) {
+    @Autowired
+    public UserServiceImpl(@Qualifier("UserInputService") UserInputService userInputService) {
         this.userInputService = userInputService;
     }
 
